@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./build",
+    "baseUrl": "./",
+    "sourceMap": true,
+    "rootDirs": ["src", "stories"]
+  },
+  "include": [
+    "src/**/*",
+    "test/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "es",
+    "lib",
+  ]
+}
