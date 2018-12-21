@@ -4,6 +4,14 @@ const _pipe = (a: any, b: any) => (...args: any[]) => b(a(...args));
 
 export const pipe = (...ops: any[]) => ops.reduce(_pipe);
 
+export const safeProp = <T extends any>(path: string[], defaultVal: T) => (val: any): T => {
+  try {
+    return path.reduce((prev, cur) => prev[cur], val);
+  } catch (_error) {
+    return defaultVal;
+  }
+}
+
 export const isObject = (obj: any) => {
   return typeof obj === 'object' && obj !== null;
 };

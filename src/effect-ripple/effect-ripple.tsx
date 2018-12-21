@@ -1,5 +1,5 @@
 import { css, cx } from 'emotion';
-import { merge } from '../util/hoc.util';
+import { merge, safeProp } from '../util/hoc.util';
 
 interface EffectRippleTheme {
   effectRiple: {
@@ -13,7 +13,7 @@ const defaultTheme = (theme: any): EffectRippleTheme =>
   merge(
     {
       effectRiple: {
-        color: theme.palette.primary.on,
+        color: safeProp(['palette', 'primary', 'on'], '#bfbfbf')(theme),
         duration: 600,
         shape: css`
           border-radius: 50%;
@@ -89,7 +89,7 @@ const ripple = (e: MouseEvent, theme: EffectRippleTheme) => {
   addEventListener('mouseup', onMouseUp);
 };
 
-export const EffectRippleProps = (customTheme: any) => {
+export const EffectRippleProps = (customTheme?: any) => {
   const theme = defaultTheme(customTheme);
   return {
     onMouseDown: (e: MouseEvent) => ripple(e, theme),
