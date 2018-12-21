@@ -1,9 +1,8 @@
-import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
-
-import { mergeProps } from '../src/util/hoc.util';
+import * as React from 'react';
 import { EffectRippleProps } from '../src/effect-ripple/effect-ripple';
+import { mergeProps } from '../src/util/hoc.util';
 
 const classFlex = css`
   display: flex;
@@ -17,17 +16,10 @@ const squareClass = {
 };
 
 storiesOf('EffectRipple', module)
-  .add('default', () => (
-    <div className={classFlex}>
-      <div
-        {...mergeProps(squareClass, EffectRippleProps())}
-      />
-    </div>
-  ))
+  .addDecorator(story => <div className={classFlex}>{story()}</div>)
+  .add('default', () => <div {...mergeProps(squareClass, EffectRippleProps())} />)
   .add('with custom theme', () => (
-    <div className={classFlex}>
-      <div
-        {...mergeProps(squareClass, EffectRippleProps({ palette: { primary: { on: '#0080ff	' } } }))}
-      />
-    </div>
+    <div
+      {...mergeProps(squareClass, EffectRippleProps({ palette: { primary: { on: '#0080ff' } } }))}
+    />
   ));
