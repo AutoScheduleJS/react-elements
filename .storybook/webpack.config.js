@@ -1,6 +1,7 @@
 const path = require('path');
 
-module.exports = (baseConfig, env, config) => {
+module.exports = (baseConfig) => {
+  const config = baseConfig.config;
   config.module.rules.push(
     { test: /\.(ts|tsx)$/, loader: require.resolve('awesome-typescript-loader') },
     {

@@ -1,6 +1,4 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { withOptions } from '@storybook/addon-options';
-import { themes } from '@storybook/components';
 import { addDecorator, configure } from '@storybook/react';
 import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
@@ -17,10 +15,5 @@ configureViewport({
   },
 });
 addDecorator(withKnobs);
-addDecorator(
-  withOptions({
-    theme: themes.dark,
-  } as any)
-);
 
 configure(loadStories, module);
