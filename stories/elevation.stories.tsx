@@ -4,6 +4,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { ElevationProps } from '../src/elevation/elevation';
 import { mergeProps } from '../src/util/hoc.util';
+import { ElevationComponentTest } from './elevation.stories.comp';
 
 const classFlex = css`
   display: flex;
@@ -37,4 +38,5 @@ storiesOf('Props/Elevation', module)
         })
       )}
     />
-  ));
+  ))
+  .add('with state handler', () => <ElevationComponentTest {...squareClass} />);

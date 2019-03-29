@@ -84,28 +84,24 @@ export const ElevationProps = (elevation: number, customTheme?: any) => {
 
 export const ElevationPropsToggle = (
   stateHandler: {
-    state: { elevation: number };
-    setState: (v: any) => void;
+    state: number;
+    setState: any;
   },
   inactive: number,
   active: number,
   eventNameIn: string,
   eventNameOut: string,
-  customTheme: any
+  customTheme?: any
 ) => {
   const theme = defaultTheme(customTheme);
   const { state, setState } = stateHandler;
-  let elevation = state.elevation;
+  let elevation = state;
   const handleMouseDown = () => {
-    setState({
-      elevation: active,
-    });
+    setState(active);
     addEventListener(eventNameOut, handleMouseUp);
   };
   const handleMouseUp = () => {
-    setState({
-      elevation: inactive,
-    });
+    setState(inactive);
     removeEventListener(eventNameOut, handleMouseUp);
   };
   return {
@@ -116,12 +112,12 @@ export const ElevationPropsToggle = (
 
 export const ElevationPropsPress = (
   stateHandler: {
-    state: { elevation: number };
-    setState: (v: any) => void;
+    state: number;
+    setState: any;
   },
   inactive: number,
   active: number,
-  customTheme: any
+  customTheme?: any
 ) => {
   return ElevationPropsToggle(
     stateHandler,
@@ -135,12 +131,12 @@ export const ElevationPropsPress = (
 
 export const ElevationPropsHover = (
   stateHandler: {
-    state: { elevation: number };
-    setState: (v: any) => void;
+    state: number;
+    setState: any;
   },
   inactive: number,
   active: number,
-  customTheme: any
+  customTheme?: any
 ) => {
   return ElevationPropsToggle(
     stateHandler,
