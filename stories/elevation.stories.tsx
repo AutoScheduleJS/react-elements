@@ -5,6 +5,7 @@ import * as React from 'react';
 import { ElevationProps } from '../src/elevation/elevation';
 import { mergeProps } from '../src/util/hoc.util';
 import { ElevationComponentTest } from './elevation.stories.comp';
+import { rGBToHex } from './util';
 
 const classFlex = css`
   display: flex;
@@ -33,7 +34,7 @@ storiesOf('Props/Elevation', module)
         squareClass,
         ElevationProps(number('Elevation', 11, knobNumberOpt), {
           shadows: {
-            baselineColor: color('Shadow color', '#4527a0'),
+            baselineColor: rGBToHex(color('Shadow color', '#4527a0')),
           },
         })
       )}
