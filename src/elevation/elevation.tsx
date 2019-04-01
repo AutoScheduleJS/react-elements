@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { css } from 'emotion';
 import { merge } from '../util/hoc.util';
 
@@ -83,10 +85,6 @@ export const ElevationProps = (elevation: number, customTheme?: any) => {
 };
 
 export const ElevationPropsToggle = (
-  stateHandler: {
-    state: number;
-    setState: any;
-  },
   inactive: number,
   active: number,
   eventNameIn: string,
@@ -94,7 +92,7 @@ export const ElevationPropsToggle = (
   customTheme?: any
 ) => {
   const theme = defaultTheme(customTheme);
-  const { state, setState } = stateHandler;
+  const [state, setState] = React.useState(0);
   let elevation = state;
   const handleMouseDown = () => {
     setState(active);
@@ -111,16 +109,11 @@ export const ElevationPropsToggle = (
 };
 
 export const ElevationPropsPress = (
-  stateHandler: {
-    state: number;
-    setState: any;
-  },
   inactive: number,
   active: number,
   customTheme?: any
 ) => {
   return ElevationPropsToggle(
-    stateHandler,
     inactive,
     active,
     'onMouseDown',
@@ -130,16 +123,11 @@ export const ElevationPropsPress = (
 };
 
 export const ElevationPropsHover = (
-  stateHandler: {
-    state: number;
-    setState: any;
-  },
   inactive: number,
   active: number,
   customTheme?: any
 ) => {
   return ElevationPropsToggle(
-    stateHandler,
     inactive,
     active,
     'onMouseOver',
