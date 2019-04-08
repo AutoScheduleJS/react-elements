@@ -1,14 +1,10 @@
 import { css } from 'emotion';
-import { withTheme } from 'emotion-theming';
 import * as React from 'react';
 import { ElevationProps } from '../elevation/elevation';
 import { merge, mergeProps } from '../util/hoc.util';
+import { ThemeContext } from '../util/theme';
 
-interface CustomableProps extends React.HTMLAttributes<HTMLDivElement> {
-  theme?: any;
-}
-
-interface AppBarProps extends CustomableProps {}
+interface AppBarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 interface AppBarTheme {
   appBar: {
@@ -22,7 +18,7 @@ const defaultTheme = (theme: any): AppBarTheme =>
     {
       appBar: {
         elevation: 4,
-        totalHeight: '58px'
+        totalHeight: '58px',
       },
     },
     theme
@@ -37,21 +33,13 @@ const AppBarRootStyles = (theme: AppBarTheme) => ({
 /**
  * AppBar container. Not responsible for hiding/reveal upon scroll (should be another component -> when tabs & app-bar are unified, this behavior should be)
  */
-class AppBarImpl extends React.PureComponent<AppBarProps> {
-  render() {
-    const {
-      children,
-      theme: incomingTheme,
-      ...defaultHostProps
-    } = this.props;
-    const theme = defaultTheme(incomingTheme);
-    const hostProps = mergeProps(
-      ElevationProps(theme.appBar.elevation, theme),
-      AppBarRootStyles(theme),
-      defaultHostProps
-    );
-    return <div {...hostProps}>{children}</div>;
-  }
-}
-
-export const AppBar = withTheme(AppBarImpl);
+export const AppBar: React.FunctionComponent<AppBarProps> = props => {
+  const { children, ...defaultHostProps } = props;
+  const theme = defaultTheme(React.useContext(ThemeContext));
+  const hostProps = mergeProps(
+    ElevationProps(theme.appBar.elevation, theme),
+    AppBarRootStyles(theme),
+    defaultHostProps
+  );
+  return <div {...hostProps}>{children}</div>;
+};
