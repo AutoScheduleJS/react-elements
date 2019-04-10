@@ -3,14 +3,17 @@ import * as React from 'react';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
 import { ThemeContext } from '../util/theme';
 
-interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
+
+interface TypographyProps {
   scale: keyof TypographyScale;
   emphase?: 'high' | 'medium' | 'low';
   baselineTop?: number;
   baselineBottom?: number;
 }
 
-enum TypographyCase {
+type TypographyPropsExtended = React.HTMLAttributes<HTMLDivElement> & TypographyProps;
+
+export enum TypographyCase {
   Sentence,
   AllCase,
 }
@@ -47,6 +50,10 @@ interface TypographyThemeColor {
 }
 
 interface TypographyTheme {
+  typeface: {
+    baseTypeface: string;
+    titleTypeface: string;
+  };
   typography: TypographyScale;
   color: TypographyThemeColor;
 }
@@ -55,6 +62,10 @@ const defaultTheme = pipe(
   (theme: any) =>
     merge(
       {
+        typeface: {
+          baseTypeface: "Verdana, Geneva, sans-serif",
+          titleTypeface: "'Times New Roman', Times, serif"
+        },
         palette: {
           surface: {
             on: '#FFFFFF',
@@ -68,11 +79,11 @@ const defaultTheme = pipe(
     ),
   (theme: any): TypographyTheme => {
     const base = {
-      typeface: "'Dosis', sans-serif",
+      typeface: theme.typeface.baseTypeface,
       weight: 400,
       case: TypographyCase.Sentence,
     };
-    const title = { ...base, typeface: "'Pacifico', cursive" };
+    const title = { ...base, typeface: theme.typeface.titleTypeface };
     return merge(
       {
         typography: {
@@ -153,7 +164,7 @@ const typeScale = (
   `;
 };
 
-export const Typography: React.FunctionComponent<TypographyProps> = props => {
+export const Typography: React.FunctionComponent<TypographyPropsExtended> = props => {
   const { children, scale, baselineTop, baselineBottom, emphase, ...defaultHostProps } = props;
   const theme = defaultTheme(React.useContext(ThemeContext));
   const hostProps = mergeProps(
@@ -163,7 +174,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = props => {
   return <div {...hostProps}>{children}</div>;
 };
 
-export const TypographyProps = (options: TypographyProps & { theme: any }) => {
+export const TypographyProps = (options: TypographyProps & { theme?: any }) => {
   const { theme: incomingTheme, scale, baselineTop, emphase, baselineBottom } = options;
   const theme = defaultTheme(incomingTheme);
   return { className: typeScale(theme, scale, baselineTop, emphase, baselineBottom) };
