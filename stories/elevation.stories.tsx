@@ -40,4 +40,4 @@ storiesOf('Props/Elevation', module)
       )}
     />
   ))
-  .add('with state handler', () => <ElevationComponentTest {...squareClass} />);
+  .add('with state handler', () => <ElevationComponentTest/>);

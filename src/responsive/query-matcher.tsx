@@ -8,7 +8,7 @@ interface QueryMatcherProps {
   [key: string]: any;
 }
 
-export const QueryMatcherr: React.FunctionComponent<QueryMatcherProps> = props => {
+export const QueryMatcher: React.FunctionComponent<QueryMatcherProps> = props => {
   const [matches, setMatches] = React.useState(!!props.defaultMatch);
   const { children, ToRender, ...otherProps } = props;
 
