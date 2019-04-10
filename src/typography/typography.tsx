@@ -1,6 +1,6 @@
 import { css } from 'emotion';
 import * as React from 'react';
-import { merge, mergeProps } from '../util/hoc.util';
+import { merge, mergeProps, pipe } from '../util/hoc.util';
 import { ThemeContext } from '../util/theme';
 
 interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -51,62 +51,67 @@ interface TypographyTheme {
   color: TypographyThemeColor;
 }
 
-const baseTheme = {
-  palette: {
-    surface: {
-      on: '#FFFFFF',
-      highEmphase: 'DD',
-      mediumEmphase: '99',
-      disabled: '61',
-    },
-  },
-};
-
-const defaultTheme = (theme: any = baseTheme): TypographyTheme => {
-  const base = {
-    typeface: "'Dosis', sans-serif",
-    weight: 400,
-    case: TypographyCase.Sentence,
-  };
-  const title = { ...base, typeface: "'Pacifico', cursive" };
-  return merge(
-    {
-      typography: {
-        H1: { ...title, weight: 300, size: '6rem', LetterSpacing: '-0.09375rem' },
-        H2: { ...title, weight: 300, size: '3.75rem', LetterSpacing: '-0.03125rem' },
-        H3: { ...title, size: '3rem', LetterSpacing: '0rem' },
-        H4: { ...title, size: '2.125rem', LetterSpacing: '0.015625rem' },
-        H5: { ...title, size: '1.5rem', LetterSpacing: '0rem' },
-        H6: { ...title, weight: 500, size: '1.25rem', LetterSpacing: '0.009375rem' },
-        Subtitle1: { ...base, size: '1rem', LetterSpacing: '0.009375rem' },
-        Subtitle2: { ...base, weight: 500, size: '0.875rem', LetterSpacing: '0.00625rem' },
-        Body1: { ...base, size: '1rem', LetterSpacing: '0.03125rem' },
-        Body2: { ...base, size: '0.875rem', LetterSpacing: '0.015625rem' },
-        Button: {
-          ...base,
-          case: TypographyCase.AllCase,
-          weight: 500,
-          size: '0.875rem',
-          LetterSpacing: '0.046875rem',
+const defaultTheme = pipe(
+  (theme: any) =>
+    merge(
+      {
+        palette: {
+          surface: {
+            on: '#FFFFFF',
+            highEmphase: 'DD',
+            mediumEmphase: '99',
+            disabled: '61',
+          },
         },
-        Caption: { ...base, size: '0.75rem', LetterSpacing: '0.025rem' },
-        Overline: {
-          ...base,
-          case: TypographyCase.AllCase,
-          size: '0.625rem',
-          LetterSpacing: '0.09375rem',
-        },
-      } as TypographyScale,
-      color: {
-        base: theme.palette.surface.on,
-        high: theme.palette.surface.highEmphase,
-        medium: theme.palette.surface.mediumEmphase,
-        low: theme.palette.surface.disabled,
       },
-    } as TypographyTheme,
-    theme
-  );
-};
+      theme
+    ),
+  (theme: any): TypographyTheme => {
+    const base = {
+      typeface: "'Dosis', sans-serif",
+      weight: 400,
+      case: TypographyCase.Sentence,
+    };
+    const title = { ...base, typeface: "'Pacifico', cursive" };
+    return merge(
+      {
+        typography: {
+          H1: { ...title, weight: 300, size: '6rem', LetterSpacing: '-0.09375rem' },
+          H2: { ...title, weight: 300, size: '3.75rem', LetterSpacing: '-0.03125rem' },
+          H3: { ...title, size: '3rem', LetterSpacing: '0rem' },
+          H4: { ...title, size: '2.125rem', LetterSpacing: '0.015625rem' },
+          H5: { ...title, size: '1.5rem', LetterSpacing: '0rem' },
+          H6: { ...title, weight: 500, size: '1.25rem', LetterSpacing: '0.009375rem' },
+          Subtitle1: { ...base, size: '1rem', LetterSpacing: '0.009375rem' },
+          Subtitle2: { ...base, weight: 500, size: '0.875rem', LetterSpacing: '0.00625rem' },
+          Body1: { ...base, size: '1rem', LetterSpacing: '0.03125rem' },
+          Body2: { ...base, size: '0.875rem', LetterSpacing: '0.015625rem' },
+          Button: {
+            ...base,
+            case: TypographyCase.AllCase,
+            weight: 500,
+            size: '0.875rem',
+            LetterSpacing: '0.046875rem',
+          },
+          Caption: { ...base, size: '0.75rem', LetterSpacing: '0.025rem' },
+          Overline: {
+            ...base,
+            case: TypographyCase.AllCase,
+            size: '0.625rem',
+            LetterSpacing: '0.09375rem',
+          },
+        } as TypographyScale,
+        color: {
+          base: theme.palette.surface.on,
+          high: theme.palette.surface.highEmphase,
+          medium: theme.palette.surface.mediumEmphase,
+          low: theme.palette.surface.disabled,
+        },
+      } as TypographyTheme,
+      theme
+    );
+  }
+);
 
 const baselineStrut = (distance: number | undefined) => `
   display: inline-block; width: 0; content: ''; height: ${distance}px

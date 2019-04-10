@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { PaddingProps } from '../responsive/padding';
 import { Typography } from '../typography/typography';
-import { merge, mergeProps } from '../util/hoc.util';
+import { merge, mergeProps, pipe } from '../util/hoc.util';
 import { ThemeContext } from '../util/theme';
 
 interface AppBarContentProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,8 +17,19 @@ interface AppBarContentTheme {
   };
 }
 
-const defaultTheme = (theme: any): AppBarContentTheme =>
-  merge(
+const defaultTheme = pipe(
+    (theme: any) => merge(
+      {
+        palette: {
+          primary: {
+            main: '#9c27b0',
+            on: '#ffffff'
+          }
+        }
+      },
+      theme
+    ),
+    (theme: any) => merge(
     {
       appBar: {
         backgroundColor: theme.palette.primary.main,
@@ -26,7 +37,7 @@ const defaultTheme = (theme: any): AppBarContentTheme =>
       },
     } as AppBarContentTheme,
     theme
-  );
+  ));
 
 const AppBarContentRootStyles = (theme: AppBarContentTheme) => {
   const appBar = theme.appBar;
