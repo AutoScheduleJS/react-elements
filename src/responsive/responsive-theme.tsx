@@ -4,13 +4,13 @@ import { ThemeContext } from '../util/theme';
 interface ResponsiveThemeProps {
   baseTheme: any;
   rules: Array<{ key: string; query: string }>;
-  handleBreakpoint: (theme: any, key: string[]) => any;
+  handleBreakpoint: (theme: any, keys: { [key: string]: boolean }) => any;
 }
 
 export const ResponsiveTheme: React.FunctionComponent<ResponsiveThemeProps> = props => {
   const { children } = props;
   const [theme, setTheme] = React.useState(props.baseTheme);
-  let enabledRules: any;
+  let enabledRules: { [key: string]: boolean };
   let mqls: Array<{ key: string; mql: MediaQueryList }>;
   let handleMatchChangeFn: (e: any) => void;
 
@@ -22,31 +22,26 @@ export const ResponsiveTheme: React.FunctionComponent<ResponsiveThemeProps> = pr
       key: rule.key,
       mql: window.matchMedia(rule.query),
     }));
-    enabledRules = mqls.reduce(
-      (acc, cur) => ({ ...acc, [cur.key]: cur.mql.matches }),
-      {}
-    );
-    const initialTheme = props.handleBreakpoint(props.baseTheme, activeRules(enabledRules));
+    enabledRules = mqls.reduce((acc, cur) => ({ ...acc, [cur.key]: cur.mql.matches }), {});
+    const initialTheme = props.handleBreakpoint(props.baseTheme, enabledRules);
     setTheme(initialTheme);
     handleMatchChangeFn = handleMatchChange(props, enabledRules, setTheme, theme);
     mqls.forEach(mql => mql.mql.addListener(handleMatchChangeFn));
 
     return () => {
       mqls.forEach(mql => mql.mql.removeListener(handleMatchChangeFn as any));
-    }
+    };
   }, [props.baseTheme, props.handleBreakpoint, props.rules]);
 
   return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
-}
+};
 
-const activeRules = (enabledRules: any) => {
-  return Object.entries(enabledRules).reduce(
-    (acc, [rule, isMatched]) => (isMatched ? [...acc, rule] : acc),
-    [] as string[]
-  );
-}
-
-const handleMatchChange = (props: ResponsiveThemeProps, enabledRules: any, setTheme: React.Dispatch<any>, theme: any) => (e: MediaQueryList) => {
+const handleMatchChange = (
+  props: ResponsiveThemeProps,
+  enabledRules: { [key: string]: boolean },
+  setTheme: React.Dispatch<any>,
+  theme: any
+) => (e: MediaQueryList) => {
   /**
    *  Warning: if browser aren't unified about e.media formatting, it will not work.
    *  The other way involves building a handleMatchChange function for each rule,
@@ -58,7 +53,5 @@ const handleMatchChange = (props: ResponsiveThemeProps, enabledRules: any, setTh
     return;
   }
   enabledRules[rule.key] = e.matches;
-  setTheme({
-    theme: props.handleBreakpoint(theme, activeRules(enabledRules)),
-  });
-}
+  setTheme(props.handleBreakpoint(theme, enabledRules));
+};
