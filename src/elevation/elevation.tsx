@@ -93,7 +93,7 @@ export const ElevationPropsToggle = (
 ) => {
   const theme = defaultTheme(customTheme);
   const [state, setState] = React.useState(0);
-  let elevation = state;
+  const elevation = state;
   const handleMouseDown = () => {
     setState(active);
     addEventListener(eventNameOut, handleMouseUp);
