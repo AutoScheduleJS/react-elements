@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
+import { css } from 'emotion';
 import * as React from 'react';
 import { Fab, FabSize } from '../src/fab/fab';
-import { css } from 'emotion';
 
 const logClick = (e: any) => console.log('clicked', e);
 
