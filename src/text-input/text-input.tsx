@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { TypographyProps } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from 'src/util/theme';
+import { ThemeContext } from '../util/theme';
 
 export enum LabelType {
   float,
@@ -16,7 +16,7 @@ export enum TextInputStatus {
   error,
 }
 
-export interface TextInputProps {
+interface TextInputProps {
   label: string;
   value: string;
   onNewVal: (val: string) => void;
@@ -40,6 +40,9 @@ interface TextInputStateTheme {
 interface TextInputTheme {
   textInput: {
     size: number;
+    baseContainer: string;
+    baseLabel: string;
+    baseIndicator: string;
     container: TextInputStateTheme;
     label: TextInputStateTheme;
     indicator: TextInputStateTheme;
@@ -65,63 +68,71 @@ const defaultTheme = pipe(
       },
       theme
     ),
-  (theme: any) => {
-    const baseContainerShape = css`
-      height: 56px;
-      min-width: 280px;
-      border-radius: 4px 4px 0 0;
-      background-color: ${theme.palette.surface.baseEmphase + '0b'};
-    `;
-    const baseLabelShape = css`
-      color: ${theme.palette.surface.baseEmphase + theme.palette.surface.mediumEmphase};
-    `;
-    const baseIndicatorShape = css`
-      position: absolute;
-      bottom: -2px;
-      height: 2px;
-      left: 0;
-      right: 0;
-      transform-origin: center;
-      transition: transform 0.25s, color 0.25s, height 0.25s;
-      background-color: ${theme.palette.secondary.main};
-      transform: scale(0, 0);
-    `;
-    return merge(
+  (theme: any) =>
+    merge(
+      {
+        textInput: {
+          baseContainer: css`
+            height: 56px;
+            min-width: 280px;
+            border-radius: 4px 4px 0 0;
+            background-color: ${theme.palette.surface.baseEmphase + '0b'};
+          `,
+          baseLabel: css`
+            color: ${theme.palette.surface.baseEmphase + theme.palette.surface.mediumEmphase};
+          `,
+          baseIndicator: css`
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            left: 0;
+            right: 0;
+            transform-origin: center;
+            transition: transform 0.25s, color 0.25s, height 0.25s;
+            background-color: ${theme.palette.secondary.main};
+            transform: scale(0, 0);
+          `,
+        },
+      },
+      theme
+    ),
+  (theme: any) =>
+    merge(
       {
         textInput: {
           container: {
-            inactive: baseContainerShape,
-            activated: baseContainerShape,
+            inactive: theme.textInput.baseContainer,
+            activated: theme.textInput.baseContainer,
             hover: css`
-              ${baseContainerShape};
+              ${theme.textInput.baseContainer};
               background-color: ${theme.palette.surface.baseEmphase + '14'};
               border-bottom: 1px solid ${theme.palette.surface.baseEmphase + '32'};
             `,
-            disabled: baseContainerShape,
-            error: baseContainerShape,
+            disabled: theme.textInput.baseContainer,
+            error: theme.textInput.baseContainer,
           },
           label: {
-            inactive: baseLabelShape,
+            inactive: theme.textInput.baseLabel,
             activated: css`
-              ${baseLabelShape};
+              ${theme.textInput.baseLabel};
               color: ${theme.palette.secondary.main};
             `,
-            hover: baseLabelShape,
+            hover: theme.textInput.baseLabel,
             disabled: css`
-              ${baseLabelShape};
+              ${theme.textInput.baseLabel};
               color: ${theme.palette.surface.baseEmphase + theme.palette.surface.disabled};
             `,
           },
           indicator: {
-            inactive: baseIndicatorShape,
+            inactive: theme.textInput.baseIndicator,
             activated: css`
-              ${baseIndicatorShape};
+              ${theme.textInput.baseIndicator};
               transform: scale(1, 1);
             `,
-            hover: baseIndicatorShape,
-            disabled: baseIndicatorShape,
+            hover: theme.textInput.baseIndicator,
+            disabled: theme.textInput.baseIndicator,
             error: css`
-              ${baseIndicatorShape};
+              ${theme.textInput.baseIndicator};
               transform: scale(1, 1);
               color: 'red';
             `,
@@ -129,8 +140,7 @@ const defaultTheme = pipe(
         },
       } as TextInputTheme,
       theme
-    );
-  }
+    )
 );
 
 const TextInputRootClass = (theme: TextInputTheme) => {
