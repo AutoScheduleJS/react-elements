@@ -29,7 +29,8 @@
   "homepage": "https://github.com/AutoScheduleJS/react-elements#readme",
   "peerDependencies": {
     "emotion": "^10.0.5",
-    "react": "^16.7.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.0.5",

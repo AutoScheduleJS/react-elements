@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface QueryMatcherProps {
+export interface QueryMatcherProps {
   mediaQuery: string;
   defaultMatch?: boolean;
   children?: (v: boolean) => React.ReactNode;

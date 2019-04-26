@@ -3,7 +3,7 @@ import * as React from 'react';
 import { mergeAll, mergeProps } from '../util/hoc.util';
 import { ThemeContext } from '../util/theme';
 
-interface LayoutMasonryProps {
+export interface LayoutMasonryProps {
   columnGap?: string;
   rowGap?: string;
   itemWidth: string;
@@ -11,7 +11,7 @@ interface LayoutMasonryProps {
 
 type LayoutMasonryPropsExtended = LayoutMasonryProps & React.HTMLAttributes<HTMLDivElement>;
 
-interface LayoutMasonryTheme {
+export interface LayoutMasonryTheme {
   layout: {
     verticalGutter: string;
     horizontalGutter: string;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ThemeContext } from '../util/theme';
 
-interface ResponsiveThemeProps {
+export interface ResponsiveThemeProps {
   baseTheme: any;
   rules: Array<{ key: string; query: string }>;
   handleBreakpoint: (theme: any, keys: { [key: string]: boolean }) => any;

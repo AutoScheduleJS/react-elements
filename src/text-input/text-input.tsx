@@ -29,7 +29,7 @@ interface TextInputProps {
 
 type TextInputPropsExtended = TextInputProps & React.HTMLAttributes<HTMLDivElement>;
 
-interface TextInputStateTheme {
+export interface TextInputStateTheme {
   inactive: string;
   activated: string;
   hover: string;
@@ -37,7 +37,7 @@ interface TextInputStateTheme {
   error: string;
 }
 
-interface TextInputTheme {
+export interface TextInputTheme {
   textInput: {
     size: number;
     baseContainer: string;

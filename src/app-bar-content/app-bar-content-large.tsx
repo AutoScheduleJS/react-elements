@@ -5,9 +5,11 @@ import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
 import { ThemeContext, PaletteTheme } from '../util/theme';
 
-interface AppBarContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AppBarContentProps {
   title?: string;
 }
+
+type AppBarContentPropsExtended = AppBarContentProps & React.HTMLAttributes<HTMLDivElement>
 
 export interface AppBarContentTheme {
   appBar: {
@@ -65,7 +67,7 @@ const AppBarContentRootStyles = (theme: AppBarContentTheme) => {
  * all default specs are in theme and can be customised by user
  *
  */
-export const AppBarContentLarge: React.FunctionComponent<AppBarContentProps> = props => {
+export const AppBarContentLarge: React.FunctionComponent<AppBarContentPropsExtended> = props => {
   const { title = '', ...defaultHostProps } = props;
   const theme = defaultTheme(React.useContext(ThemeContext));
   const hostProps = mergeProps(

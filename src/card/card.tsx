@@ -1,9 +1,9 @@
 import { css } from 'emotion';
 import { ElevationProps, ElevationPropsHover } from '../elevation/elevation';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { PaletteTheme } from 'src/util/theme';
+import { PaletteTheme } from '../util/theme';
 
-interface CardTheme {
+export interface CardTheme {
   card: {
     restElevation: number;
     activeElevation: number;

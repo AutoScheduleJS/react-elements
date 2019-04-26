@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import { merge } from '../util/hoc.util';
 
-interface PaddingTheme {
+export interface PaddingTheme {
   layout: {
     margin: string;
   };

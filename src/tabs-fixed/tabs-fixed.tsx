@@ -27,7 +27,7 @@ export interface TabsFixedProps {
 
 type TabsFixedPropsExtended = TabsFixedProps & React.HTMLAttributes<HTMLDivElement>;
 
-interface TabsFixedTheme {
+export interface TabsFixedTheme {
   tabs: {
     totalHeight: string;
     backgroundColor: string;

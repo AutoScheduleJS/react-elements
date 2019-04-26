@@ -4,7 +4,7 @@ import { merge, mergeProps, pipe } from '../util/hoc.util';
 import { ThemeContext, PaletteTheme } from '../util/theme';
 
 
-interface TypographyProps {
+export interface TypographyProps {
   scale: keyof TypographyScale;
   emphase?: 'high' | 'medium' | 'low';
   baselineTop?: number;
@@ -42,14 +42,14 @@ interface TypographyScale {
   Overline: TypographyAttribte;
 }
 
-interface TypographyThemeColor {
+export interface TypographyThemeColor {
   base: string;
   high: string;
   medium: string;
   low: string;
 }
 
-interface TypographyTheme {
+export interface TypographyTheme {
   typeface: {
     baseTypeface: string;
     titleTypeface: string;

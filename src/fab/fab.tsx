@@ -21,7 +21,7 @@ export interface FabProps {
 
 type FabPropsExtended = FabProps & React.HTMLAttributes<HTMLDivElement>;
 
-interface FabTheme {
+export interface FabTheme {
   fab: {
     shape: {
       defaultShape: string;

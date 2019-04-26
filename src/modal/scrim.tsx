@@ -4,7 +4,7 @@ import { animated, useTransition } from 'react-spring/web';
 import { merge, pipe } from '../util/hoc.util';
 import { ThemeContext, PaletteTheme } from '../util/theme';
 
-interface ScrimProps {
+export interface ScrimProps {
   displayScrim: boolean;
   handleClick?: () => void;
 }

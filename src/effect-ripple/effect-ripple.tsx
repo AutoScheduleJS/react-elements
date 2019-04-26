@@ -1,8 +1,8 @@
 import { css, cx } from 'emotion';
 import { merge, pipe } from '../util/hoc.util';
-import { PaletteTheme } from 'src/util/theme';
+import { PaletteTheme } from '../util/theme';
 
-interface EffectRippleTheme {
+export interface EffectRippleTheme {
   effectRiple: {
     color: string;
     duration: number;

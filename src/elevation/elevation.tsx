@@ -3,7 +3,7 @@ import * as React from 'react';
 import { css } from 'emotion';
 import { merge } from '../util/hoc.util';
 
-interface ElevationTheme {
+export interface ElevationTheme {
   shadows: {
     baselineColor: string;
   };

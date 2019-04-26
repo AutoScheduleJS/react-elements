@@ -20,7 +20,7 @@ export interface ButtonProps {
 
 type ButtonPropsExtended = ButtonProps & React.HTMLAttributes<HTMLDivElement>;
 
-interface ButtonTheme {
+export interface ButtonTheme {
   button: {
     shape: string;
     mediumShape: string;
