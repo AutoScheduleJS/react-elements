@@ -4,7 +4,7 @@ import { EffectRippleProps } from '../effect-ripple/effect-ripple';
 import { ElevationProps } from '../elevation/elevation';
 import { TypographyProps } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 export enum ButtonEmphaze {
   Low,
@@ -41,7 +41,7 @@ const defaultTheme = pipe(
         on: '#C2C2C2',
       }
     }
-  }, theme),
+  } as PaletteTheme, theme),
   (theme: any) =>
   merge(
     {
@@ -102,7 +102,7 @@ const ButtonRootStyles = (theme: ButtonTheme, emphaze: number) => {
 };
 
 export const Button: React.FunctionComponent<ButtonPropsExtended> = React.forwardRef(
-  (props, forwardedRef) => {
+  (props: ButtonPropsExtended, forwardedRef) => {
     const { label, emphaze, ...defaultHostProps } = props;
     const theme = defaultTheme(React.useContext(ThemeContext));
     const elevation = emphaze === ButtonEmphaze.High ? theme.button.elevation : 0;

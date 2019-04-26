@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { TypographyProps } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 export enum LabelType {
   float,
@@ -65,7 +65,7 @@ const defaultTheme = pipe(
             disabled: '61',
           },
         },
-      },
+      } as PaletteTheme,
       theme
     ),
   (theme: any) =>
@@ -230,7 +230,7 @@ const ActiveIndicatorClass = (
 };
 
 export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.forwardRef(
-  (props, forwardedRef) => {
+  (props: TextInputPropsExtended, forwardedRef) => {
     const [isActive, setActive] = React.useState(false);
     const inputRef = React.useRef<HTMLInputElement>();
     React.useEffect(() => {

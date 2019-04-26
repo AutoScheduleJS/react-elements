@@ -4,7 +4,7 @@ import { EffectRippleProps } from '../effect-ripple/effect-ripple';
 import { ElevationPropsPress } from '../elevation/elevation';
 import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 export enum FabSize {
   Default,
@@ -45,7 +45,7 @@ const defaultTheme = pipe(
             on: '#000000',
           },
         },
-      },
+      } as PaletteTheme,
       theme
     ),
   (theme: any) =>
@@ -114,7 +114,7 @@ const buttonTabCss = css`
 `;
 
 export const Fab: React.FunctionComponent<FabPropsExtended> = React.forwardRef(
-  (props, forwardRef) => {
+  (props: FabPropsExtended, forwardRef) => {
     const { label, size = FabSize.Default, icon, onClick = () => {}, ...defaultHostProps } = props;
     const theme = defaultTheme(React.useContext(ThemeContext));
     const { resting, pressed } = theme.fab.elevation;

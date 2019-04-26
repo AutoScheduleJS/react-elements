@@ -1,5 +1,6 @@
 import { css, cx } from 'emotion';
-import { merge, safeProp } from '../util/hoc.util';
+import { merge, pipe } from '../util/hoc.util';
+import { PaletteTheme } from 'src/util/theme';
 
 interface EffectRippleTheme {
   effectRiple: {
@@ -9,19 +10,22 @@ interface EffectRippleTheme {
   };
 }
 
-const defaultTheme = (theme: any): EffectRippleTheme =>
-  merge(
-    {
-      effectRiple: {
-        color: safeProp(['palette', 'primary', 'on'], '#bfbfbf')(theme),
-        duration: 600,
-        shape: css`
-          border-radius: 50%;
-        `,
-      },
-    },
-    theme
-  );
+const defaultTheme = pipe(
+  (theme: any) => merge({ palette: { primary: { on: '#bfbfbf' } } } as PaletteTheme, theme),
+  (theme: any) =>
+    merge(
+      {
+        effectRiple: {
+          color: theme.palette.primary.on,
+          duration: 600,
+          shape: css`
+            border-radius: 50%;
+          `,
+        },
+      } as EffectRippleTheme,
+      theme
+    )
+);
 
 const ripple = (e: MouseEvent, theme: EffectRippleTheme) => {
   const duration = theme.effectRiple.duration;

@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { animated, useTransition } from 'react-spring/web';
 import { merge, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 interface ScrimProps {
   displayScrim: boolean;
@@ -16,13 +16,7 @@ export interface ScrimTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) =>
-    merge(
-      {
-        palette: { surface: { on: '#000000' } },
-      },
-      theme
-    ),
+  (theme: any) => merge({ palette: { surface: { on: '#000000' } } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {
@@ -54,7 +48,12 @@ export const Scrim: React.FunctionComponent<ScrimProps> = props => {
   return transition.map(
     ({ item, key, props }) =>
       item && (
-        <animated.div key={key} className={themeToScrimClass(theme)} onClick={handleClick} style={props} />
+        <animated.div
+          key={key}
+          className={themeToScrimClass(theme)}
+          onClick={handleClick}
+          style={props}
+        />
       )
   ) as any;
 };

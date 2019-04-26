@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import * as React from 'react';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 
 interface TypographyProps {
@@ -74,7 +74,7 @@ const defaultTheme = pipe(
             disabled: '61',
           },
         },
-      },
+      } as PaletteTheme & TypographyTheme,
       theme
     ),
   (theme: any): TypographyTheme => {

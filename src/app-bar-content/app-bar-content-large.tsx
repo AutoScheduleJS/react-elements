@@ -3,13 +3,13 @@ import * as React from 'react';
 import { PaddingProps } from '../responsive/padding';
 import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 interface AppBarContentProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
 }
 
-interface AppBarContentTheme {
+export interface AppBarContentTheme {
   appBar: {
     totalHeight: string;
     backgroundColor: string;
@@ -26,7 +26,7 @@ const defaultTheme = pipe(
             on: '#ffffff'
           }
         }
-      },
+      } as PaletteTheme,
       theme
     ),
     (theme: any) => merge(

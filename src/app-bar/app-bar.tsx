@@ -6,7 +6,7 @@ import { ThemeContext } from '../util/theme';
 
 interface AppBarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-interface AppBarTheme {
+export interface AppBarTheme {
   appBar: {
     elevation: number;
     totalHeight: string;

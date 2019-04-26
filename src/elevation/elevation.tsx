@@ -10,14 +10,7 @@ interface ElevationTheme {
 }
 
 const defaultTheme = (theme: any): ElevationTheme =>
-  merge(
-    {
-      shadows: {
-        baselineColor: '#000000',
-      },
-    },
-    theme
-  );
+  merge({ shadows: { baselineColor: '#000000' } } as ElevationTheme, theme);
 
 const umbraOpacity = '33';
 const penumbraOpacity = '24';
@@ -108,30 +101,10 @@ export const ElevationPropsToggle = (
   };
 };
 
-export const ElevationPropsPress = (
-  inactive: number,
-  active: number,
-  customTheme?: any
-) => {
-  return ElevationPropsToggle(
-    inactive,
-    active,
-    'onMouseDown',
-    'mouseup',
-    customTheme
-  );
+export const ElevationPropsPress = (inactive: number, active: number, customTheme?: any) => {
+  return ElevationPropsToggle(inactive, active, 'onMouseDown', 'mouseup', customTheme);
 };
 
-export const ElevationPropsHover = (
-  inactive: number,
-  active: number,
-  customTheme?: any
-) => {
-  return ElevationPropsToggle(
-    inactive,
-    active,
-    'onMouseOver',
-    'mouseout',
-    customTheme
-  );
+export const ElevationPropsHover = (inactive: number, active: number, customTheme?: any) => {
+  return ElevationPropsToggle(inactive, active, 'onMouseOver', 'mouseout', customTheme);
 };

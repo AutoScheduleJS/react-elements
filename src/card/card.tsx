@@ -1,6 +1,7 @@
 import { css } from 'emotion';
 import { ElevationProps, ElevationPropsHover } from '../elevation/elevation';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
+import { PaletteTheme } from 'src/util/theme';
 
 interface CardTheme {
   card: {
@@ -13,7 +14,7 @@ interface CardTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({ palette: { surface: { main: '#FFF', on: '#00000099' } } }, theme),
+  (theme: any) => merge({ palette: { surface: { main: '#FFF', on: '#00000099' } } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {

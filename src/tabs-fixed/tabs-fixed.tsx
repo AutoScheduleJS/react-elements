@@ -3,7 +3,7 @@ import * as React from 'react';
 import { animated, useTransition } from 'react-spring/web';
 import { Button, ButtonEmphaze } from '../button/button';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext } from '../util/theme';
+import { ThemeContext, PaletteTheme } from '../util/theme';
 
 export enum TabsFixedPlacement {
   FullWidth,
@@ -49,7 +49,7 @@ const defaultTheme = pipe(
             on: '#C2C2C2',
           },
         },
-      },
+      } as PaletteTheme,
       theme
     ),
   (theme: any) =>
