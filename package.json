@@ -2,26 +2,33 @@
   "name": "@autoschedule/react-elements",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
   "scripts": {
-    "ava": "ava build/**/*.test.js",
-    "test": "tslint -p ./ && tsc && nyc --reporter=lcov npm run ava",
-    "test:codecov": "tslint -p ./ && tsc && nyc npm run ava",
     "build:ts": "tsc -p tsconfig.build.json",
     "build": "npm run build:ts && npm run build:ts -- -m es6 --outDir es",
     "prepublishOnly": "npm run build",
-    "doc": "npm run build && typedoc --out docs/ es/",
     "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "watch:ts": "tsc -w",
-    "watch:ava": "ava -w build/**/*.test.js",
-    "watch:test": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Ava\" -c \"blue.bold,magenta.bold\" \"npm run watch:ts\" \"npm run watch:ava\""
+    "watch:ts": "tsc -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AutoScheduleJS/react-elements.git"
   },
-  "author": "",
+  "private": false,
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "theme",
+    "material",
+    "components",
+    "ui"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AutoScheduleJS/react-elements/issues"
@@ -32,6 +39,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@storybook/addon-info": "^5.0.5",
     "@storybook/addon-knobs": "^5.0.5",
