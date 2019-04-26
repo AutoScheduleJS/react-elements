@@ -68,7 +68,7 @@ const defaultTheme = pipe(
         },
         palette: {
           surface: {
-            on: '#FFFFFF',
+            on: '#000000',
             highEmphase: 'DD',
             mediumEmphase: '99',
             disabled: '61',
