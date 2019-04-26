@@ -112,7 +112,7 @@ const rootClass = css`
 `;
 
 export const TabsFixed: React.FunctionComponent<TabsFixedPropsExtended> = React.forwardRef(
-  (props, forwardRef) => {
+  (props: TabsFixedPropsExtended, forwardRef) => {
     const { activeTab, children, onTabChange, tabs, placement, ...defaultHostProps } = props;
 
     const [myActiveI, setActiveI] = React.useState(0);
