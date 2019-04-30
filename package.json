@@ -11,7 +11,8 @@
     "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "watch:ts": "tsc -w"
+    "watch:ts": "tsc -w",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,7 @@
     "@storybook/addon-viewport": "^5.0.5",
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
-    "@types/jest": "^24.0.11",
+    "@types/jest": "^24.0.12",
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.8.4",
     "@types/storybook__addon-info": "^4.0.0",
@@ -58,14 +59,16 @@
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "emotion": "^10.0.9",
-    "jest": "^24.0.0",
+    "jest": "^24.7.1",
+    "jest-emotion": "^10.0.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "ts-jest": "^24.0.0",
+    "react-testing-library": "^7.0.0",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.4.5"
   },
   "dependencies": {
     "react-spring": "^8.0.19"

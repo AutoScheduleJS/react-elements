@@ -6,7 +6,6 @@
       "es2017",
       "dom"
     ],
-    "types": [],
     "declaration": true,
     "inlineSourceMap": false,
     "jsx": "react",

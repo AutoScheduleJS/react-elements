@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/AutoScheduleJS/react-elements.svg?branch=master)](https://travis-ci.org/AutoScheduleJS/react-elements#)

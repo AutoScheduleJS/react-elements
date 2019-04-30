@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`typography props: <typography props> 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 300;
+  text-transform: initial;
+  -webkit-letter-spacing: -0.09375rem;
+  -moz-letter-spacing: -0.09375rem;
+  -ms-letter-spacing: -0.09375rem;
+  letter-spacing: -0.09375rem;
+  font-size: 6rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;

@@ -4,7 +4,8 @@
     "outDir": "./build",
     "baseUrl": "./",
     "sourceMap": true,
-    "rootDirs": ["src", "stories"]
+    "rootDirs": ["src", "stories"],
+    "types": ["jest"],
   },
   "include": [
     "src/**/*",
