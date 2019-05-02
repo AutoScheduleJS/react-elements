@@ -1,6 +1,623 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`typography props: <typography props> 1`] = `
+exports[`Typography props with Body1 scale: scale: 'Body1' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.03125rem;
+  -moz-letter-spacing: 0.03125rem;
+  -ms-letter-spacing: 0.03125rem;
+  letter-spacing: 0.03125rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Body2 scale: scale: 'Body2' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.015625rem;
+  -moz-letter-spacing: 0.015625rem;
+  -ms-letter-spacing: 0.015625rem;
+  letter-spacing: 0.015625rem;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Button scale: scale: 'Button' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0.046875rem;
+  -moz-letter-spacing: 0.046875rem;
+  -ms-letter-spacing: 0.046875rem;
+  letter-spacing: 0.046875rem;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Caption scale: scale: 'Caption' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.025rem;
+  -moz-letter-spacing: 0.025rem;
+  -ms-letter-spacing: 0.025rem;
+  letter-spacing: 0.025rem;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with H2 scale: scale: 'H2' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 300;
+  text-transform: initial;
+  -webkit-letter-spacing: -0.03125rem;
+  -moz-letter-spacing: -0.03125rem;
+  -ms-letter-spacing: -0.03125rem;
+  letter-spacing: -0.03125rem;
+  font-size: 3.75rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with H3 scale: scale: 'H3' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0rem;
+  -moz-letter-spacing: 0rem;
+  -ms-letter-spacing: 0rem;
+  letter-spacing: 0rem;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with H4 scale: scale: 'H4' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.015625rem;
+  -moz-letter-spacing: 0.015625rem;
+  -ms-letter-spacing: 0.015625rem;
+  letter-spacing: 0.015625rem;
+  font-size: 2.125rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with H5 scale: scale: 'H5' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0rem;
+  -moz-letter-spacing: 0rem;
+  -ms-letter-spacing: 0rem;
+  letter-spacing: 0rem;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with H6 scale: scale: 'H6' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 500;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.009375rem;
+  -moz-letter-spacing: 0.009375rem;
+  -ms-letter-spacing: 0.009375rem;
+  letter-spacing: 0.009375rem;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Overline scale: scale: 'Overline' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0.09375rem;
+  -moz-letter-spacing: 0.09375rem;
+  -ms-letter-spacing: 0.09375rem;
+  letter-spacing: 0.09375rem;
+  font-size: 0.625rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Subtitle1 scale: scale: 'Subtitle1' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 400;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.009375rem;
+  -moz-letter-spacing: 0.009375rem;
+  -ms-letter-spacing: 0.009375rem;
+  letter-spacing: 0.009375rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with Subtitle2 scale: scale: 'Subtitle2' 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: Verdana,Geneva,sans-serif;
+  font-weight: 500;
+  text-transform: initial;
+  -webkit-letter-spacing: 0.00625rem;
+  -moz-letter-spacing: 0.00625rem;
+  -ms-letter-spacing: 0.00625rem;
+  letter-spacing: 0.00625rem;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with all props: scale: 'H1', emphase: 'high', baselineTop: 10, baselineBottom: 15 1`] = `
+.emotion-0 {
+  color: #000000DD;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 300;
+  text-transform: initial;
+  -webkit-letter-spacing: -0.09375rem;
+  -moz-letter-spacing: -0.09375rem;
+  -ms-letter-spacing: -0.09375rem;
+  letter-spacing: -0.09375rem;
+  font-size: 6rem;
+  margin-bottom: -15;
+  position: absolute;
+  bottom: 15px;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 10px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 15px;
+  vertical-align: -15;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with low emphase: scale: 'H1', emphase: 'low' 1`] = `
+.emotion-0 {
+  color: #00000061;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 300;
+  text-transform: initial;
+  -webkit-letter-spacing: -0.09375rem;
+  -moz-letter-spacing: -0.09375rem;
+  -ms-letter-spacing: -0.09375rem;
+  letter-spacing: -0.09375rem;
+  font-size: 6rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with medium emphase: scale: 'H1', emphase: 'medium' 1`] = `
+.emotion-0 {
+  color: #00000099;
+  font-family: 'Times New Roman',Times,serif;
+  font-weight: 300;
+  text-transform: initial;
+  -webkit-letter-spacing: -0.09375rem;
+  -moz-letter-spacing: -0.09375rem;
+  -ms-letter-spacing: -0.09375rem;
+  letter-spacing: -0.09375rem;
+  font-size: 6rem;
+  margin-bottom: 0;
+}
+
+.emotion-0::before {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: 0px;
+  vertical-align: 0;
+}
+
+.emotion-0::after {
+  display: inline-block;
+  width: 0;
+  content: '';
+  height: undefinedpx;
+  vertical-align: 0;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      test
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography props with only mandatory props: scale: 'H1' 1`] = `
 .emotion-0 {
   color: #000000DD;
   font-family: 'Times New Roman',Times,serif;
