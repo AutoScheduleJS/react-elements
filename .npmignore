@@ -12,3 +12,7 @@ cc-test-reporter
 build
 lib/build
 test
+jest.config.js
+.storybook
+.vscode
+stories
