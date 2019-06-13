@@ -12,7 +12,7 @@
         "no-object-literal-type-assertion": false,
         "no-implicit-dependencies": false,
         "jsx-no-lambda": false,
-        "no-submodule-imports": false,
+        "no-submodule-imports": false
     },
     "rulesDirectory": []
 }
