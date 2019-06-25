@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import * as React from 'react';
-import { ThemeContext } from 'src/util/theme';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
+import { ThemeContext } from '../util/theme';
 
 interface IRange {
   start: number;
