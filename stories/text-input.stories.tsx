@@ -2,7 +2,7 @@ import { number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import * as React from 'react';
-import { LabelType, TextInput, TextInputStatus } from '../src/text-input/text-input';
+import { LabelType, TextInput, TextInputStatus, TextInputFocus } from '../src/text-input/text-input';
 import { ThemeContext } from '../src/util/theme';
 
 const customTheme = () => ({
@@ -37,6 +37,13 @@ const DumpTextInput: React.FunctionComponent<{ label: string; [key: string]: any
   return <TextInput label={label} value={val} onNewVal={v => setVal(v)} {...otherProps} />;
 };
 
+const DumpTextInputFocus: React.FunctionComponent<{ label: string; [key: string]: any }> = props => {
+  const { label, ...otherProps } = props;
+  const [val, setVal] = React.useState('');
+  const onNewVal = (v: string) => setVal(v.toUpperCase());
+  return <TextInputFocus label={label} value={val} onNewVal={onNewVal} {...otherProps} />;
+}
+
 storiesOf('Component/Material/TextInput', module)
   .add('default textInput', () => <DumpTextInput label={'Default textInput'} />)
   .add('label fixed', () => <DumpTextInput label={'Fixed Label'} labelType={LabelType.fixed} />)
@@ -47,6 +54,7 @@ storiesOf('Component/Material/TextInput', module)
   .add('error textInput', () => (
     <DumpTextInput label={'Disabled textInput'} status={TextInputStatus.error} />
   ))
+  .add('on blur', () => <DumpTextInputFocus label={'updated on blur'} />)
   .add('Custom theme', () => (
     <ThemeContext.Provider value={customTheme()}>
       <DumpTextInput label={'My Input'} />

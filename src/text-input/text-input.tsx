@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { TypographyProps } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum LabelType {
   float,
@@ -251,7 +251,15 @@ export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.
       ...defaultHostProps
     } = props;
     const theme = defaultTheme(React.useContext(ThemeContext));
-    const hostProps = mergeProps(TextInputRootClass(theme), defaultHostProps);
+    const hostProps = mergeProps(
+      TextInputRootClass(theme),
+      {
+        onClick: () => setActive(true),
+        onFocus: () => setActive(true),
+        onBlur: () => setActive(false),
+      },
+      defaultHostProps
+    );
     const labelProps = mergeProps(
       TypographyProps({ scale: 'Caption', baselineTop: 20 }),
       LabelClass(theme, labelType, value, status, isActive)
@@ -262,17 +270,24 @@ export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.
     });
     const activIndicatorProps = ActiveIndicatorClass(theme, status, isActive);
     return (
-      <div
-        ref={forwardedRef}
-        {...hostProps}
-        onClick={() => setActive(true)}
-        onFocus={() => setActive(true)}
-        onBlur={() => setActive(false)}
-      >
+      <div ref={forwardedRef} {...hostProps}>
         <div {...labelProps}>{label}</div>
         <input {...inputProps} ref={inputRef} />
         <div {...activIndicatorProps} />
       </div>
+    );
+  }
+);
+
+export const TextInputFocus: React.FunctionComponent<TextInputPropsExtended> = React.forwardRef(
+  (props: TextInputPropsExtended, forwardedRef) => {
+    const { value, onNewVal, ...defaultHostProps } = props;
+    const [inputVal, setInputVal] = React.useState(value);
+    React.useEffect(() => setInputVal(value), [value]);
+    const inputOnNewVal = React.useCallback(e => setInputVal(e), []);
+    const hostProps = mergeProps(defaultHostProps, { onBlur: () => onNewVal(inputVal) });
+    return (
+      <TextInput ref={forwardedRef} {...hostProps} value={inputVal} onNewVal={inputOnNewVal} />
     );
   }
 );
