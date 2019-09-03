@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { cx } from 'emotion';
 
 const _pipe = (a: any, b: any) => (...args: any[]) => b(a(...args));
@@ -10,7 +11,7 @@ export const safeProp = <T extends any>(path: string[], defaultVal: T) => (val: 
   } catch (_error) {
     return defaultVal;
   }
-}
+};
 
 export const isObject = (obj: any) => {
   return typeof obj === 'object' && obj !== null;
@@ -66,4 +67,21 @@ export const mergeProps = (...props: any[]) => {
     ...props.filter(prop => prop && prop.className).map(prop => prop.className)
   );
   return result;
+};
+
+// export const handleOverride(DropdownInput, inputProps, inputRef)(override && override.input);
+export const handleOverride = <T, _>(
+  BaseComponent: React.ComponentType<T>,
+  baseProps: T,
+  ref?: React.MutableRefObject<any>
+) => (overrideObj?: { Component?: React.ComponentType<T>; props?: T }) => {
+  if (!overrideObj) {
+    return <BaseComponent {...baseProps} ref={ref} />
+  }
+  const { Component, props } = overrideObj;
+  const newProps = mergeProps(baseProps, props);
+  if (Component) {
+    return <Component {...newProps} ref={ref} />
+  }
+  return <BaseComponent {...newProps} ref={ref} />
 };

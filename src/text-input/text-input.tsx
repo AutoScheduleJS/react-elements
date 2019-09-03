@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import * as React from 'react';
 import { TypographyProps } from '../typography/typography';
-import { merge, mergeProps, pipe } from '../util/hoc.util';
+import { handleOverride, merge, mergeProps, pipe } from '../util/hoc.util';
 import { PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum LabelType {
@@ -25,9 +25,15 @@ interface TextInputProps {
   assistiveMsg?: string;
   leadingIcon?: React.Component;
   trailingIcon?: React.Component;
+  override?: {
+    input?: {
+      Component?: React.ComponentType<any>;
+      props?: any;
+    };
+  };
 }
 
-type TextInputPropsExtended = TextInputProps & React.HTMLAttributes<HTMLDivElement>;
+export type TextInputPropsExtended = TextInputProps & React.HTMLAttributes<HTMLDivElement>;
 
 export interface TextInputStateTheme {
   inactive: string;
@@ -229,6 +235,37 @@ const ActiveIndicatorClass = (
   return { className: indicClass };
 };
 
+interface FakeInputProps extends React.HTMLAttributes<HTMLInputElement> {
+  value: string;
+}
+
+export const FakeInput: React.FunctionComponent<FakeInputProps> = React.forwardRef<
+  HTMLDivElement,
+  FakeInputProps
+>((props: FakeInputProps, forwardRef) => {
+  const hostProps = mergeProps(
+    {
+      className: css`
+        user-select: none;
+      `,
+    },
+    props
+  );
+  return (
+    <div ref={forwardRef} tabIndex={0} {...hostProps}>
+      {props.value}
+    </div>
+  );
+});
+
+export const RealInput: React.FunctionComponent<
+  React.HTMLAttributes<HTMLInputElement>
+> = React.forwardRef<HTMLInputElement, React.HTMLAttributes<HTMLInputElement>>(
+  (props: React.HTMLAttributes<HTMLInputElement>, forwardRef) => {
+    return <input {...props} ref={forwardRef} />;
+  }
+);
+
 export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.forwardRef(
   (props: TextInputPropsExtended, forwardedRef) => {
     const [isActive, setActive] = React.useState(false);
@@ -248,6 +285,7 @@ export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.
       assistiveMsg,
       leadingIcon,
       trailingIcon,
+      override,
       ...defaultHostProps
     } = props;
     const theme = defaultTheme(React.useContext(ThemeContext));
@@ -268,11 +306,12 @@ export const TextInput: React.FunctionComponent<TextInputPropsExtended> = React.
       value,
       onChange: (e: React.ChangeEvent<HTMLInputElement>) => onNewVal(e.target.value),
     });
+    const itemCmp = handleOverride(RealInput, inputProps, inputRef)(override && override.input);
     const activIndicatorProps = ActiveIndicatorClass(theme, status, isActive);
     return (
       <div ref={forwardedRef} {...hostProps}>
         <div {...labelProps}>{label}</div>
-        <input {...inputProps} ref={inputRef} />
+        {itemCmp}
         <div {...activIndicatorProps} />
       </div>
     );

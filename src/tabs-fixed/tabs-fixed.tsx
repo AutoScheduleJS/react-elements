@@ -3,7 +3,7 @@ import * as React from 'react';
 import { animated, useTransition } from 'react-spring/web';
 import { Button, ButtonEmphaze } from '../button/button';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum TabsFixedPlacement {
   FullWidth,
@@ -19,6 +19,7 @@ export interface TabInfo {
 }
 
 export interface TabsFixedProps {
+  ref?: React.Ref<unknown>;
   placement: TabsFixedPlacement;
   activeTab: string;
   tabs: TabInfo[];
@@ -106,10 +107,12 @@ const baseContentStyle = {
   position: 'absolute' as 'absolute',
 };
 
-const rootClass = css`
-  position: relative;
-  overflow: hidden;
-`;
+const rootClass = {
+  className: css`
+    position: relative;
+    overflow: hidden;
+  `,
+};
 
 export const TabsFixed: React.FunctionComponent<TabsFixedPropsExtended> = React.forwardRef(
   (props: TabsFixedPropsExtended, forwardRef) => {
@@ -144,15 +147,9 @@ export const TabsFixed: React.FunctionComponent<TabsFixedPropsExtended> = React.
     );
 
     const theme = defaultTheme(React.useContext(ThemeContext));
-    const hostProps = mergeProps(
-      {
-        className: rootClass,
-      },
-      defaultHostProps
-    );
-    console.log('activeI', myActiveI);
+    const hostProps = mergeProps(rootClass, defaultHostProps);
     return (
-      <div {...hostProps} ref={forwardRef}>
+      <div ref={forwardRef} {...hostProps}>
         <div className={containerCss(placement)}>
           <div className={tabsCss}>
             {tabs.map(tab => (
@@ -176,3 +173,31 @@ export const TabsFixed: React.FunctionComponent<TabsFixedPropsExtended> = React.
     );
   }
 );
+
+export interface TabsFixedSimpleProps {
+  placement: TabsFixedPlacement;
+  tabs: TabInfo[];
+}
+
+type TabsFixedSimplePropsExtended = TabsFixedSimpleProps & React.HTMLAttributes<HTMLDivElement>;
+
+export const TabsFixedSimple: React.FunctionComponent<
+  TabsFixedSimplePropsExtended
+> = React.forwardRef((props: TabsFixedSimplePropsExtended, forwardRef) => {
+  const { tabs, placement, children, ...defaultHostProps } = props;
+  if (!tabs.length) {
+    return null;
+  }
+  const [activeTab, setActiveTab] = React.useState(tabs[0].id);
+  const handleNewTab = React.useCallback(id => setActiveTab(id), []);
+  return (
+    <TabsFixed
+      ref={forwardRef}
+      placement={placement}
+      onTabChange={handleNewTab}
+      tabs={tabs}
+      activeTab={activeTab}
+      {...defaultHostProps}
+    />
+  );
+});
