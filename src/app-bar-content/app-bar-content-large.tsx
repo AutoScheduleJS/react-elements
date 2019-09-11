@@ -3,13 +3,13 @@ import * as React from 'react';
 import { PaddingProps } from '../responsive/padding';
 import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { palettePrimary, PaletteTheme, ThemeContext } from '../util/theme';
 
 export interface AppBarContentProps {
   title?: string;
 }
 
-type AppBarContentPropsExtended = AppBarContentProps & React.HTMLAttributes<HTMLDivElement>
+type AppBarContentPropsExtended = AppBarContentProps & React.HTMLAttributes<HTMLDivElement>;
 
 export interface AppBarContentTheme {
   appBar: {
@@ -20,26 +20,26 @@ export interface AppBarContentTheme {
 }
 
 const defaultTheme = pipe(
-    (theme: any) => merge(
+  (theme: any) =>
+    merge(
       {
         palette: {
-          primary: {
-            main: '#9c27b0',
-            on: '#ffffff'
-          }
-        }
+          primary: palettePrimary,
+        },
       } as PaletteTheme,
       theme
     ),
-    (theme: any) => merge(
-    {
-      appBar: {
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.on,
-      },
-    } as AppBarContentTheme,
-    theme
-  ));
+  (theme: any) =>
+    merge(
+      {
+        appBar: {
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.primary.on,
+        },
+      } as AppBarContentTheme,
+      theme
+    )
+);
 
 const AppBarContentRootStyles = (theme: AppBarContentTheme) => {
   const appBar = theme.appBar;

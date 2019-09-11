@@ -85,3 +85,10 @@ export const handleOverride = <T, _>(
   }
   return <BaseComponent {...newProps} ref={ref} />
 };
+
+export function* idGeneratorFn(prefix: string) {
+  let id = 0;
+  while (true) {
+    yield `${prefix}-${id++}`;
+  }
+}

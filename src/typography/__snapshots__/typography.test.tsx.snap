@@ -2,7 +2,7 @@
 
 exports[`Typography props with Body1 scale: scale: 'Body1' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 400;
   text-transform: initial;
@@ -43,7 +43,7 @@ exports[`Typography props with Body1 scale: scale: 'Body1' 1`] = `
 
 exports[`Typography props with Body2 scale: scale: 'Body2' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 400;
   text-transform: initial;
@@ -84,7 +84,7 @@ exports[`Typography props with Body2 scale: scale: 'Body2' 1`] = `
 
 exports[`Typography props with Button scale: scale: 'Button' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 500;
   text-transform: uppercase;
@@ -125,7 +125,7 @@ exports[`Typography props with Button scale: scale: 'Button' 1`] = `
 
 exports[`Typography props with Caption scale: scale: 'Caption' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 400;
   text-transform: initial;
@@ -166,7 +166,7 @@ exports[`Typography props with Caption scale: scale: 'Caption' 1`] = `
 
 exports[`Typography props with H2 scale: scale: 'H2' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 300;
   text-transform: initial;
@@ -207,7 +207,7 @@ exports[`Typography props with H2 scale: scale: 'H2' 1`] = `
 
 exports[`Typography props with H3 scale: scale: 'H3' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 400;
   text-transform: initial;
@@ -248,7 +248,7 @@ exports[`Typography props with H3 scale: scale: 'H3' 1`] = `
 
 exports[`Typography props with H4 scale: scale: 'H4' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 400;
   text-transform: initial;
@@ -289,7 +289,7 @@ exports[`Typography props with H4 scale: scale: 'H4' 1`] = `
 
 exports[`Typography props with H5 scale: scale: 'H5' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 400;
   text-transform: initial;
@@ -330,7 +330,7 @@ exports[`Typography props with H5 scale: scale: 'H5' 1`] = `
 
 exports[`Typography props with H6 scale: scale: 'H6' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 500;
   text-transform: initial;
@@ -371,7 +371,7 @@ exports[`Typography props with H6 scale: scale: 'H6' 1`] = `
 
 exports[`Typography props with Overline scale: scale: 'Overline' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -412,7 +412,7 @@ exports[`Typography props with Overline scale: scale: 'Overline' 1`] = `
 
 exports[`Typography props with Subtitle1 scale: scale: 'Subtitle1' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 400;
   text-transform: initial;
@@ -453,7 +453,7 @@ exports[`Typography props with Subtitle1 scale: scale: 'Subtitle1' 1`] = `
 
 exports[`Typography props with Subtitle2 scale: scale: 'Subtitle2' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: Verdana,Geneva,sans-serif;
   font-weight: 500;
   text-transform: initial;
@@ -494,7 +494,7 @@ exports[`Typography props with Subtitle2 scale: scale: 'Subtitle2' 1`] = `
 
 exports[`Typography props with all props: scale: 'H1', emphase: 'high', baselineTop: 10, baselineBottom: 15 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 300;
   text-transform: initial;
@@ -537,7 +537,7 @@ exports[`Typography props with all props: scale: 'H1', emphase: 'high', baseline
 
 exports[`Typography props with low emphase: scale: 'H1', emphase: 'low' 1`] = `
 .emotion-0 {
-  color: #00000061;
+  color: #FFFFFF61;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 300;
   text-transform: initial;
@@ -578,7 +578,7 @@ exports[`Typography props with low emphase: scale: 'H1', emphase: 'low' 1`] = `
 
 exports[`Typography props with medium emphase: scale: 'H1', emphase: 'medium' 1`] = `
 .emotion-0 {
-  color: #00000099;
+  color: #FFFFFF99;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 300;
   text-transform: initial;
@@ -619,7 +619,7 @@ exports[`Typography props with medium emphase: scale: 'H1', emphase: 'medium' 1`
 
 exports[`Typography props with only mandatory props: scale: 'H1' 1`] = `
 .emotion-0 {
-  color: #000000DD;
+  color: #FFFFFFDD;
   font-family: 'Times New Roman',Times,serif;
   font-weight: 300;
   text-transform: initial;

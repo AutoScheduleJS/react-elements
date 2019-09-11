@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { TypographyProps } from '../typography/typography';
 import { handleOverride, merge, mergeProps, pipe } from '../util/hoc.util';
-import { PaletteTheme, ThemeContext } from '../util/theme';
+import { paletteSecondary, paletteSurface, PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum LabelType {
   float,
@@ -16,7 +16,7 @@ export enum TextInputStatus {
   error,
 }
 
-interface TextInputProps {
+export interface TextInputProps {
   label: string;
   value: string;
   onNewVal: (val: string) => void;
@@ -33,7 +33,7 @@ interface TextInputProps {
   };
 }
 
-export type TextInputPropsExtended = TextInputProps & React.HTMLAttributes<HTMLDivElement>;
+type TextInputPropsExtended = TextInputProps & React.HTMLAttributes<HTMLDivElement>;
 
 export interface TextInputStateTheme {
   inactive: string;
@@ -61,15 +61,8 @@ const defaultTheme = pipe(
     merge(
       {
         palette: {
-          secondary: {
-            main: '#c62828',
-          },
-          surface: {
-            baseEmphase: '#FFFFFF',
-            highEmphase: 'DD',
-            mediumEmphase: '99',
-            disabled: '61',
-          },
+          secondary: paletteSecondary,
+          surface: paletteSurface,
         },
       } as PaletteTheme,
       theme

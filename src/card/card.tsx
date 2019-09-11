@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import { ElevationProps, ElevationPropsHover } from '../elevation/elevation';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { PaletteTheme } from '../util/theme';
+import { paletteSurface, PaletteTheme } from '../util/theme';
 
 export interface CardTheme {
   card: {
@@ -14,7 +14,7 @@ export interface CardTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({ palette: { surface: { main: '#FFF', on: '#00000099' } } } as PaletteTheme, theme),
+  (theme: any) => merge({ palette: { surface: paletteSurface } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {
@@ -50,11 +50,7 @@ export const CardProps = (options: { customTheme?: any; isClickable?: boolean })
   const theme = defaultTheme(customTheme);
   const card = theme.card;
   const elevation = isClickable
-    ?  ElevationPropsHover(
-      card.restElevation,
-      card.activeElevation,
-      theme
-    )
-    : ElevationProps(card.restElevation, theme)
+    ? ElevationPropsHover(card.restElevation, card.activeElevation, theme)
+    : ElevationProps(card.restElevation, theme);
   return mergeProps(elevation, themeToClassname(theme, isClickable));
 };

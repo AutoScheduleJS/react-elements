@@ -4,7 +4,7 @@ import { EffectRippleProps } from '../effect-ripple/effect-ripple';
 import { ElevationPropsPress } from '../elevation/elevation';
 import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { palettePrimary, PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum FabSize {
   Default,
@@ -40,10 +40,7 @@ const defaultTheme = pipe(
     merge(
       {
         palette: {
-          primary: {
-            main: '#42a5f5',
-            on: '#000000',
-          },
+          primary: palettePrimary,
         },
       } as PaletteTheme,
       theme

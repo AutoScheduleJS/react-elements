@@ -4,7 +4,7 @@ import { EffectRippleProps } from '../effect-ripple/effect-ripple';
 import { ElevationProps } from '../elevation/elevation';
 import { TypographyProps } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { paletteSecondary, paletteSurface, PaletteTheme, ThemeContext } from '../util/theme';
 
 export enum ButtonEmphaze {
   Low,
@@ -31,44 +31,43 @@ export interface ButtonTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({
-    palette: {
-      secondary: {
-        on: '#FFFFFF',
-        main: '#c62828',
-      },
-      surface: {
-        on: '#C2C2C2',
-      }
-    }
-  } as PaletteTheme, theme),
   (theme: any) =>
-  merge(
-    {
-      button: {
-        elevation: 2,
-        shape: css`
-          border-radius: 4px;
-          padding: 0 16px;
-          height: 36px;
-          min-width: 64px;
-          color: ${theme.palette.secondary.main};
-        `,
-        highShape: css`
-          color: ${theme.palette.secondary.on};
-          background-color: ${theme.palette.secondary.main};
-        `,
-        mediumShape: css`
-          color: ${theme.palette.surface.on};
-          border: 1px solid ${theme.palette.surface.on};
-        `,
-        lowShape: css`
-          padding: 0 8px;
-        `,
+    merge(
+      {
+        palette: {
+          secondary: paletteSecondary,
+          surface: paletteSurface,
+        },
+      } as PaletteTheme,
+      theme
+    ),
+  (theme: any) =>
+    merge(
+      {
+        button: {
+          elevation: 2,
+          shape: css`
+            border-radius: 4px;
+            padding: 0 16px;
+            height: 36px;
+            min-width: 64px;
+            color: ${theme.palette.secondary.main};
+          `,
+          highShape: css`
+            color: ${theme.palette.secondary.on};
+            background-color: ${theme.palette.secondary.main};
+          `,
+          mediumShape: css`
+            color: ${theme.palette.surface.on};
+            border: 1px solid ${theme.palette.surface.on};
+          `,
+          lowShape: css`
+            padding: 0 8px;
+          `,
+        },
       },
-    },
-    theme
-  )
+      theme
+    )
 );
 
 /**

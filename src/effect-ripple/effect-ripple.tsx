@@ -1,6 +1,6 @@
 import { css, cx } from 'emotion';
 import { merge, pipe } from '../util/hoc.util';
-import { PaletteTheme } from '../util/theme';
+import { palettePrimary, PaletteTheme } from '../util/theme';
 
 export interface EffectRippleTheme {
   effectRiple: {
@@ -11,7 +11,7 @@ export interface EffectRippleTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({ palette: { primary: { on: '#bfbfbf' } } } as PaletteTheme, theme),
+  (theme: any) => merge({ palette: { primary: palettePrimary } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {

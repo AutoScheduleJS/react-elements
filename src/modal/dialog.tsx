@@ -3,8 +3,8 @@ import * as React from 'react';
 import { ElevationProps } from '../elevation/elevation';
 import { Typography } from '../typography/typography';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
+import { paletteSurface, PaletteTheme, ThemeContext } from '../util/theme';
 import { Modal } from './modal';
-import { ThemeContext, PaletteTheme } from '../util/theme';
 
 export interface DialogProps {
   dialogTitle?: string;
@@ -28,7 +28,7 @@ export interface DialogTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({ palette: { surface: { main: '#FFFFFF' } } } as PaletteTheme, theme),
+  (theme: any) => merge({ palette: { surface: paletteSurface } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {

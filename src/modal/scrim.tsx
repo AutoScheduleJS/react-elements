@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import * as React from 'react';
 import { animated, useTransition } from 'react-spring/web';
 import { merge, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
+import { paletteSurface, PaletteTheme, ThemeContext } from '../util/theme';
 
 export interface ScrimProps {
   displayScrim: boolean;
@@ -16,7 +16,7 @@ export interface ScrimTheme {
 }
 
 const defaultTheme = pipe(
-  (theme: any) => merge({ palette: { surface: { on: '#000000' } } } as PaletteTheme, theme),
+  (theme: any) => merge({ palette: { surface: paletteSurface } } as PaletteTheme, theme),
   (theme: any) =>
     merge(
       {

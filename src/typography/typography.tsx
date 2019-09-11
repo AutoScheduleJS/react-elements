@@ -1,8 +1,7 @@
 import { css } from 'emotion';
 import * as React from 'react';
 import { merge, mergeProps, pipe } from '../util/hoc.util';
-import { ThemeContext, PaletteTheme } from '../util/theme';
-
+import { paletteSurface, PaletteTheme, ThemeContext } from '../util/theme';
 
 export interface TypographyProps {
   scale: keyof TypographyScale;
@@ -63,16 +62,11 @@ const defaultTheme = pipe(
     merge(
       {
         typeface: {
-          baseTypeface: "Verdana, Geneva, sans-serif",
-          titleTypeface: "'Times New Roman', Times, serif"
+          baseTypeface: 'Verdana, Geneva, sans-serif',
+          titleTypeface: "'Times New Roman', Times, serif",
         },
         palette: {
-          surface: {
-            on: '#000000',
-            highEmphase: 'DD',
-            mediumEmphase: '99',
-            disabled: '61',
-          },
+          surface: paletteSurface,
         },
       } as PaletteTheme & TypographyTheme,
       theme
