@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import * as React from 'react';
-import { LayoutMasonry } from '../src/layout-masonry/layout-masonry';
+import { LayoutMasonry } from '../src/layout/layout-masonry';
 
 const divClass = () => {
   const randomHeight = Math.random() * 250 + 50;

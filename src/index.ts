@@ -5,7 +5,7 @@ export * from './card/card';
 export * from './effect-ripple/effect-ripple';
 export * from './elevation/elevation';
 export * from './fab/fab';
-export * from './layout-masonry/layout-masonry';
+export * from './layout/layout-masonry';
 export * from './modal/dialog';
 export * from './modal/modal';
 export * from './modal/scrim';

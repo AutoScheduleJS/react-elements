@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { cx } from 'emotion';
+import * as React from 'react';
 
 const _pipe = (a: any, b: any) => (...args: any[]) => b(a(...args));
 
@@ -76,12 +76,35 @@ export const handleOverride = <T, _>(
   ref?: React.MutableRefObject<any>
 ) => (overrideObj?: { Component?: React.ComponentType<T>; props?: T }) => {
   if (!overrideObj) {
-    return <BaseComponent {...baseProps} ref={ref} />
+    return <BaseComponent {...baseProps} ref={ref} />;
   }
   const { Component, props } = overrideObj;
   const newProps = mergeProps(baseProps, props);
   if (Component) {
-    return <Component {...newProps} ref={ref} />
+    return <Component {...newProps} ref={ref} />;
   }
-  return <BaseComponent {...newProps} ref={ref} />
+  return <BaseComponent {...newProps} ref={ref} />;
 };
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+export const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = React.useState(getWindowDimensions());
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
